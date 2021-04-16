@@ -23,17 +23,17 @@
                     <h:outputText value="#{paisController.selected.idcontinentePais}" title="#{bundle.ViewPaisTitle_idcontinentePais}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{paisController.destroyAndView}" value="#{bundle.ViewPaisDestroyLink}"/>
+                <h:commandLink class="btn btn-primary" action="#{paisController.destroyAndView}" value="#{bundle.ViewPaisDestroyLink}"/>
                 <br />
                 <br />
-                <h:link outcome="Edit" value="#{bundle.ViewPaisEditLink}"/>
+                <h:link class="btn btn-primary" outcome="Edit" value="#{bundle.ViewPaisEditLink}"/>
                 <br />
-                <h:commandLink action="#{paisController.prepareCreate}" value="#{bundle.ViewPaisCreateLink}" />
+                <h:commandLink class="btn btn-primary" action="#{paisController.prepareCreate}" value="#{bundle.ViewPaisCreateLink}" />
                 <br />
-                <h:commandLink action="#{paisController.prepareList}" value="#{bundle.ViewPaisShowAllLink}"/>
+                <h:commandLink class="btn btn-primary" action="#{paisController.prepareList}" value="#{bundle.ViewPaisShowAllLink}"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ViewPaisIndexLink}"/>
+                <h:link class="btn btn-primary" outcome="/index" value="#{bundle.ViewPaisIndexLink}"/>
 
             </h:form>
         </ui:define>

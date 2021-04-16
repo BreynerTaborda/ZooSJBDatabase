@@ -15,27 +15,31 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateZoologicosLabel_idZoo}" for="idZoo" />
-                    <h:inputText id="idZoo" value="#{zoologicosController.selected.idZoo}" title="#{bundle.CreateZoologicosTitle_idZoo}" required="true" requiredMessage="#{bundle.CreateZoologicosRequiredMessage_idZoo}"/>
-                    <h:outputLabel value="#{bundle.CreateZoologicosLabel_nombreZoo}" for="nombreZoo" />
-                    <h:inputText id="nombreZoo" value="#{zoologicosController.selected.nombreZoo}" title="#{bundle.CreateZoologicosTitle_nombreZoo}" required="true" requiredMessage="#{bundle.CreateZoologicosRequiredMessage_nombreZoo}"/>
-                    <h:outputLabel value="#{bundle.CreateZoologicosLabel_tamaãO}" for="tamaãO" />
-                    <h:inputText id="tamaãO" value="#{zoologicosController.selected.tamaãO}" title="#{bundle.CreateZoologicosTitle_tamaãO}" required="true" requiredMessage="#{bundle.CreateZoologicosRequiredMessage_tamaãO}"/>
-                    <h:outputLabel value="#{bundle.CreateZoologicosLabel_presupuesto}" for="presupuesto" />
-                    <h:inputText id="presupuesto" value="#{zoologicosController.selected.presupuesto}" title="#{bundle.CreateZoologicosTitle_presupuesto}" required="true" requiredMessage="#{bundle.CreateZoologicosRequiredMessage_presupuesto}"/>
-                    <h:outputLabel value="#{bundle.CreateZoologicosLabel_ciudadZoo}" for="ciudadZoo" />
-                    <h:selectOneMenu id="ciudadZoo" value="#{zoologicosController.selected.ciudadZoo}" title="#{bundle.CreateZoologicosTitle_ciudadZoo}" required="true" requiredMessage="#{bundle.CreateZoologicosRequiredMessage_ciudadZoo}">
+                    <h:outputLabel class="form-label mb-3" value="#{bundle.CreateZoologicosLabel_idZoo}" for="idZoo" />
+                    <h:inputText class="form-control mb-3" id="idZoo" value="#{zoologicosController.selected.idZoo}" title="#{bundle.CreateZoologicosTitle_idZoo}" required="true" requiredMessage="#{bundle.CreateZoologicosRequiredMessage_idZoo}"/>
+                    <h:outputLabel class="form-label mb-3" value="#{bundle.CreateZoologicosLabel_nombreZoo}" for="nombreZoo" />
+                    <h:inputText class="form-control mb-3" id="nombreZoo" value="#{zoologicosController.selected.nombreZoo}" title="#{bundle.CreateZoologicosTitle_nombreZoo}" required="true" requiredMessage="#{bundle.CreateZoologicosRequiredMessage_nombreZoo}"/>
+                    <h:outputLabel class="form-label mb-3" value="#{bundle.CreateZoologicosLabel_tamaãO}" for="tamaãO" />
+                    <h:inputText class="form-control mb-3" id="tamaãO" value="#{zoologicosController.selected.tamaãO}" title="#{bundle.CreateZoologicosTitle_tamaãO}" required="true" requiredMessage="#{bundle.CreateZoologicosRequiredMessage_tamaãO}"/>
+                    <h:outputLabel class="form-label mb-3" value="#{bundle.CreateZoologicosLabel_presupuesto}" for="presupuesto" />
+                    <h:inputText class="form-control mb-3" id="presupuesto" value="#{zoologicosController.selected.presupuesto}" title="#{bundle.CreateZoologicosTitle_presupuesto}" required="true" requiredMessage="#{bundle.CreateZoologicosRequiredMessage_presupuesto}"/>
+                    <h:outputLabel class="form-label mb-3" value="#{bundle.CreateZoologicosLabel_ciudadZoo}" for="ciudadZoo" />
+                    <h:selectOneMenu class="form-select mb-3" id="ciudadZoo" value="#{zoologicosController.selected.ciudadZoo}" title="#{bundle.CreateZoologicosTitle_ciudadZoo}" required="true" requiredMessage="#{bundle.CreateZoologicosRequiredMessage_ciudadZoo}">
                         <f:selectItems value="#{ciudadController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{zoologicosController.create}" value="#{bundle.CreateZoologicosSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{zoologicosController.prepareList}" value="#{bundle.CreateZoologicosShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateZoologicosIndexLink}"/>
+                <div class="row">
+                    <div class="col-md-1">
+                        <h:commandLink class="btn btn-primary" action="#{zoologicosController.create}" value="#{bundle.CreateZoologicosSaveLink}" />
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h:commandLink class="btn btn-primary" action="#{zoologicosController.prepareList}" value="#{bundle.CreateZoologicosShowAllLink}" immediate="true" />
+                    </div>
+                    <div class="col-md-1">
+                        <h:link class="btn btn-primary" outcome="/index" value="#{bundle.CreateZoologicosIndexLink}" />
+                    </div>
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>

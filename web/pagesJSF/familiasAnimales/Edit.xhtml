@@ -15,20 +15,26 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditFamiliasAnimalesLabel_idFamilias}" for="idFamilias" />
-                    <h:inputText id="idFamilias" value="#{familiasAnimalesController.selected.idFamilias}" title="#{bundle.EditFamiliasAnimalesTitle_idFamilias}" required="true" requiredMessage="#{bundle.EditFamiliasAnimalesRequiredMessage_idFamilias}"/>
-                    <h:outputLabel value="#{bundle.EditFamiliasAnimalesLabel_nombreFamilia}" for="nombreFamilia" />
-                    <h:inputText id="nombreFamilia" value="#{familiasAnimalesController.selected.nombreFamilia}" title="#{bundle.EditFamiliasAnimalesTitle_nombreFamilia}" required="true" requiredMessage="#{bundle.EditFamiliasAnimalesRequiredMessage_nombreFamilia}"/>
+                    <h:outputLabel class="form-label mb-3" value="#{bundle.EditFamiliasAnimalesLabel_idFamilias}" for="idFamilias" />
+                    <h:inputText class="form-control mb-3" id="idFamilias" value="#{familiasAnimalesController.selected.idFamilias}" title="#{bundle.EditFamiliasAnimalesTitle_idFamilias}" required="true" requiredMessage="#{bundle.EditFamiliasAnimalesRequiredMessage_idFamilias}"/>
+                    <h:outputLabel class="form-label mb-3" value="#{bundle.EditFamiliasAnimalesLabel_nombreFamilia}" for="nombreFamilia" />
+                    <h:inputText class="form-control mb-3" id="nombreFamilia" value="#{familiasAnimalesController.selected.nombreFamilia}" title="#{bundle.EditFamiliasAnimalesTitle_nombreFamilia}" required="true" requiredMessage="#{bundle.EditFamiliasAnimalesRequiredMessage_nombreFamilia}"/>
                 </h:panelGrid>
-                <h:commandLink action="#{familiasAnimalesController.update}" value="#{bundle.EditFamiliasAnimalesSaveLink}"/>
-                <br />
-                <br />
-                <h:link outcome="View" value="#{bundle.EditFamiliasAnimalesViewLink}"/>
-                <br />
-                <h:commandLink action="#{familiasAnimalesController.prepareList}" value="#{bundle.EditFamiliasAnimalesShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditFamiliasAnimalesIndexLink}" />
+
+                <div class="row">
+                    <div class="col-md-1">
+                        <h:commandLink class="btn btn-primary" action="#{familiasAnimalesController.update}" value="#{bundle.EditFamiliasAnimalesSaveLink}"/>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h:link class="btn btn-primary" outcome="View" value="#{bundle.EditFamiliasAnimalesViewLink}"/>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h:commandLink class="btn btn-primary" action="#{familiasAnimalesController.prepareList}" value="#{bundle.EditFamiliasAnimalesShowAllLink}" immediate="true"/>
+                    </div>
+                    <div class="col-md-1">
+                        <h:link class="btn btn-primary" outcome="/index" value="#{bundle.EditFamiliasAnimalesIndexLink}" />
+                    </div>
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>

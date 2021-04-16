@@ -21,17 +21,17 @@
                     <h:outputText value="#{familiasAnimalesController.selected.nombreFamilia}" title="#{bundle.ViewFamiliasAnimalesTitle_nombreFamilia}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{familiasAnimalesController.destroyAndView}" value="#{bundle.ViewFamiliasAnimalesDestroyLink}"/>
+                <h:commandLink class="btn btn-primary" action="#{familiasAnimalesController.destroyAndView}" value="#{bundle.ViewFamiliasAnimalesDestroyLink}"/>
                 <br />
                 <br />
-                <h:link outcome="Edit" value="#{bundle.ViewFamiliasAnimalesEditLink}"/>
+                <h:link class="btn btn-primary" outcome="Edit" value="#{bundle.ViewFamiliasAnimalesEditLink}"/>
                 <br />
-                <h:commandLink action="#{familiasAnimalesController.prepareCreate}" value="#{bundle.ViewFamiliasAnimalesCreateLink}" />
+                <h:commandLink class="btn btn-primary" action="#{familiasAnimalesController.prepareCreate}" value="#{bundle.ViewFamiliasAnimalesCreateLink}" />
                 <br />
-                <h:commandLink action="#{familiasAnimalesController.prepareList}" value="#{bundle.ViewFamiliasAnimalesShowAllLink}"/>
+                <h:commandLink class="btn btn-primary" action="#{familiasAnimalesController.prepareList}" value="#{bundle.ViewFamiliasAnimalesShowAllLink}"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ViewFamiliasAnimalesIndexLink}"/>
+                <h:link class="btn btn-primary" outcome="/index" value="#{bundle.ViewFamiliasAnimalesIndexLink}"/>
 
             </h:form>
         </ui:define>

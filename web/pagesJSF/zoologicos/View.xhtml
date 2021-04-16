@@ -27,17 +27,17 @@
                     <h:outputText value="#{zoologicosController.selected.ciudadZoo}" title="#{bundle.ViewZoologicosTitle_ciudadZoo}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{zoologicosController.destroyAndView}" value="#{bundle.ViewZoologicosDestroyLink}"/>
+                <h:commandLink class="btn btn-primary" action="#{zoologicosController.destroyAndView}" value="#{bundle.ViewZoologicosDestroyLink}"/>
                 <br />
                 <br />
-                <h:link outcome="Edit" value="#{bundle.ViewZoologicosEditLink}"/>
+                <h:link class="btn btn-primary" outcome="Edit" value="#{bundle.ViewZoologicosEditLink}"/>
                 <br />
-                <h:commandLink action="#{zoologicosController.prepareCreate}" value="#{bundle.ViewZoologicosCreateLink}" />
+                <h:commandLink class="btn btn-primary" action="#{zoologicosController.prepareCreate}" value="#{bundle.ViewZoologicosCreateLink}" />
                 <br />
-                <h:commandLink action="#{zoologicosController.prepareList}" value="#{bundle.ViewZoologicosShowAllLink}"/>
+                <h:commandLink class="btn btn-primary" action="#{zoologicosController.prepareList}" value="#{bundle.ViewZoologicosShowAllLink}"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ViewZoologicosIndexLink}"/>
+                <h:link class="btn btn-primary" outcome="/index" value="#{bundle.ViewZoologicosIndexLink}"/>
 
             </h:form>
         </ui:define>

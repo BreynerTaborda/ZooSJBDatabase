@@ -15,23 +15,27 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreatePaisLabel_idPais}" for="idPais" />
-                    <h:inputText id="idPais" value="#{paisController.selected.idPais}" title="#{bundle.CreatePaisTitle_idPais}" required="true" requiredMessage="#{bundle.CreatePaisRequiredMessage_idPais}"/>
-                    <h:outputLabel value="#{bundle.CreatePaisLabel_nombrePais}" for="nombrePais" />
-                    <h:inputText id="nombrePais" value="#{paisController.selected.nombrePais}" title="#{bundle.CreatePaisTitle_nombrePais}" required="true" requiredMessage="#{bundle.CreatePaisRequiredMessage_nombrePais}"/>
-                    <h:outputLabel value="#{bundle.CreatePaisLabel_idcontinentePais}" for="idcontinentePais" />
-                    <h:selectOneMenu id="idcontinentePais" value="#{paisController.selected.idcontinentePais}" title="#{bundle.CreatePaisTitle_idcontinentePais}" required="true" requiredMessage="#{bundle.CreatePaisRequiredMessage_idcontinentePais}">
+                    <h:outputLabel class="form-label mb-3" value="#{bundle.CreatePaisLabel_idPais}" for="idPais" />
+                    <h:inputText class="form-control mb-3" id="idPais" value="#{paisController.selected.idPais}" title="#{bundle.CreatePaisTitle_idPais}" required="true" requiredMessage="#{bundle.CreatePaisRequiredMessage_idPais}"/>
+                    <h:outputLabel class="form-label mb-3" value="#{bundle.CreatePaisLabel_nombrePais}" for="nombrePais" />
+                    <h:inputText class="form-control mb-3" id="nombrePais" value="#{paisController.selected.nombrePais}" title="#{bundle.CreatePaisTitle_nombrePais}" required="true" requiredMessage="#{bundle.CreatePaisRequiredMessage_nombrePais}"/>
+                    <h:outputLabel class="form-label mb-3" value="#{bundle.CreatePaisLabel_idcontinentePais}" for="idcontinentePais" />
+                    <h:selectOneMenu class="form-select mb-3" id="idcontinentePais" value="#{paisController.selected.idcontinentePais}" title="#{bundle.CreatePaisTitle_idcontinentePais}" required="true" requiredMessage="#{bundle.CreatePaisRequiredMessage_idcontinentePais}">
                         <f:selectItems value="#{continentesController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{paisController.create}" value="#{bundle.CreatePaisSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{paisController.prepareList}" value="#{bundle.CreatePaisShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreatePaisIndexLink}"/>
+                <div class="row">
+                    <div class="col-md-1">
+                        <h:commandLink class="btn btn-primary" action="#{paisController.create}" value="#{bundle.CreatePaisSaveLink}" />
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h:commandLink class="btn btn-primary" action="#{paisController.prepareList}" value="#{bundle.CreatePaisShowAllLink}" immediate="true"/>
+                    </div>
+                    <div class="col-md-1">
+                        <h:link class="btn btn-primary" outcome="/index" value="#{bundle.CreatePaisIndexLink}"/>
+                    </div>
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>
