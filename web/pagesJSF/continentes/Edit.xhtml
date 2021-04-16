@@ -15,20 +15,36 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditContinentesLabel_idContinente}" for="idContinente" />
-                    <h:inputText id="idContinente" value="#{continentesController.selected.idContinente}" title="#{bundle.EditContinentesTitle_idContinente}" required="true" requiredMessage="#{bundle.EditContinentesRequiredMessage_idContinente}"/>
-                    <h:outputLabel value="#{bundle.EditContinentesLabel_nombrecontinente}" for="nombrecontinente" />
-                    <h:inputText id="nombrecontinente" value="#{continentesController.selected.nombrecontinente}" title="#{bundle.EditContinentesTitle_nombrecontinente}" required="true" requiredMessage="#{bundle.EditContinentesRequiredMessage_nombrecontinente}"/>
+                    <h:outputLabel value="#{bundle.EditContinentesLabel_idContinente}" 
+                                   for="idContinente" class="form-label mb-3"/>
+                    <h:inputText id="idContinente" value="#{continentesController.selected.idContinente}" 
+                                 title="#{bundle.EditContinentesTitle_idContinente}" required="true" 
+                                 requiredMessage="#{bundle.EditContinentesRequiredMessage_idContinente}"
+                                 class="form-control mb-3"/>
+                    <h:outputLabel value="#{bundle.EditContinentesLabel_nombrecontinente}" 
+                                   for="nombrecontinente" class="form-label mb-3"/>
+                    <h:inputText id="nombrecontinente" value="#{continentesController.selected.nombrecontinente}"
+                                 title="#{bundle.EditContinentesTitle_nombrecontinente}" required="true" 
+                                 requiredMessage="#{bundle.EditContinentesRequiredMessage_nombrecontinente}"
+                                 class="form-control mb-3"/>
                 </h:panelGrid>
-                <h:commandLink action="#{continentesController.update}" value="#{bundle.EditContinentesSaveLink}"/>
-                <br />
-                <br />
-                <h:link outcome="View" value="#{bundle.EditContinentesViewLink}"/>
-                <br />
-                <h:commandLink action="#{continentesController.prepareList}" value="#{bundle.EditContinentesShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditContinentesIndexLink}" />
+                <div class="row">
+                    <div class="col-md-1">
+                        <h:commandLink action="#{continentesController.update}" 
+                               value="#{bundle.EditContinentesSaveLink}"  class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-1">
+                        <h:link outcome="View" value="#{bundle.EditContinentesViewLink}"  class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h:commandLink action="#{continentesController.prepareList}" 
+                               value="#{bundle.EditContinentesShowAllLink}" immediate="true" 
+                                class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-1">
+                       <h:link outcome="/index" value="#{bundle.EditContinentesIndexLink}"  class="btn btn-primary"/>
+                    </div>
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>

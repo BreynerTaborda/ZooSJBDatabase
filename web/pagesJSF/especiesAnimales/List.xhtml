@@ -19,7 +19,9 @@
                     <h:outputText value="#{especiesAnimalesController.pagination.pageFirstItem + 1}..#{especiesAnimalesController.pagination.pageLastItem + 1}/#{especiesAnimalesController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{especiesAnimalesController.previous}" value="#{bundle.Previous} #{especiesAnimalesController.pagination.pageSize}" rendered="#{especiesAnimalesController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{especiesAnimalesController.next}" value="#{bundle.Next} #{especiesAnimalesController.pagination.pageSize}" rendered="#{especiesAnimalesController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{especiesAnimalesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:dataTable value="#{especiesAnimalesController.items}" var="item" border="0" 
+                                 cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" 
+                                 rules="all" class="table">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEspeciesAnimalesTitle_idEspecies}"/>
@@ -54,20 +56,26 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{especiesAnimalesController.prepareView}" value="#{bundle.ListEspeciesAnimalesViewLink}"/>
+                            <h:commandLink action="#{especiesAnimalesController.prepareView}" value="#{bundle.ListEspeciesAnimalesViewLink}" class="btn btn-primary"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{especiesAnimalesController.prepareEdit}" value="#{bundle.ListEspeciesAnimalesEditLink}"/>
+                            <h:commandLink action="#{especiesAnimalesController.prepareEdit}" value="#{bundle.ListEspeciesAnimalesEditLink}" class="btn btn-primary"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{especiesAnimalesController.destroy}" value="#{bundle.ListEspeciesAnimalesDestroyLink}"/>
+                            <h:commandLink action="#{especiesAnimalesController.destroy}" value="#{bundle.ListEspeciesAnimalesDestroyLink}" class="btn btn-primary"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{especiesAnimalesController.prepareCreate}" value="#{bundle.ListEspeciesAnimalesCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListEspeciesAnimalesIndexLink}"/>
-            </h:form>
+                <div class="row">
+                    <div class="col-md-3 text-center">
+                        <h:commandLink action="#{especiesAnimalesController.prepareCreate}" 
+                               value="#{bundle.ListEspeciesAnimalesCreateLink}"
+                                class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-1">
+                        <h:link outcome="/index" value="#{bundle.ListEspeciesAnimalesIndexLink}"  class="btn btn-primary"/>
+                    </div>
+                </div>
+             </h:form>
         </ui:define>
     </ui:composition>
 

@@ -15,24 +15,34 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewContinentesLabel_idContinente}"/>
-                    <h:outputText value="#{continentesController.selected.idContinente}" title="#{bundle.ViewContinentesTitle_idContinente}"/>
-                    <h:outputText value="#{bundle.ViewContinentesLabel_nombrecontinente}"/>
-                    <h:outputText value="#{continentesController.selected.nombrecontinente}" title="#{bundle.ViewContinentesTitle_nombrecontinente}"/>
+                    <h:outputText value="#{bundle.ViewContinentesLabel_idContinente}" class="form-label"/>
+                    <h:outputText value="#{continentesController.selected.idContinente}" 
+                                  title="#{bundle.ViewContinentesTitle_idContinente}" class="form-label"/>
+                    <h:outputText value="#{bundle.ViewContinentesLabel_nombrecontinente}" class="form-label"/>
+                    <h:outputText value="#{continentesController.selected.nombrecontinente}" 
+                                  title="#{bundle.ViewContinentesTitle_nombrecontinente}" class="form-label"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{continentesController.destroyAndView}" value="#{bundle.ViewContinentesDestroyLink}"/>
-                <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewContinentesEditLink}"/>
-                <br />
-                <h:commandLink action="#{continentesController.prepareCreate}" value="#{bundle.ViewContinentesCreateLink}" />
-                <br />
-                <h:commandLink action="#{continentesController.prepareList}" value="#{bundle.ViewContinentesShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewContinentesIndexLink}"/>
-
+                <div class="row">
+                    <div class="col-md-2 text-center">
+                         <h:commandLink action="#{continentesController.destroyAndView}" 
+                               value="#{bundle.ViewContinentesDestroyLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <h:link outcome="Edit" value="#{bundle.ViewContinentesEditLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-3 text-center">
+                         <h:commandLink action="#{continentesController.prepareCreate}" 
+                               value="#{bundle.ViewContinentesCreateLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h:commandLink action="#{continentesController.prepareList}" 
+                               value="#{bundle.ViewContinentesShowAllLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-2 text-center">
+                       <h:link outcome="/index" value="#{bundle.ViewContinentesIndexLink}" class="btn btn-primary"/>
+                    </div>
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>

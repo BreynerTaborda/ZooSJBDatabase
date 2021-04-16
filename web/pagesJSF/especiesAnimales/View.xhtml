@@ -15,30 +15,47 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewEspeciesAnimalesLabel_idEspecies}"/>
-                    <h:outputText value="#{especiesAnimalesController.selected.idEspecies}" title="#{bundle.ViewEspeciesAnimalesTitle_idEspecies}"/>
-                    <h:outputText value="#{bundle.ViewEspeciesAnimalesLabel_nombreComun}"/>
-                    <h:outputText value="#{especiesAnimalesController.selected.nombreComun}" title="#{bundle.ViewEspeciesAnimalesTitle_nombreComun}"/>
-                    <h:outputText value="#{bundle.ViewEspeciesAnimalesLabel_nombreCientifico}"/>
-                    <h:outputText value="#{especiesAnimalesController.selected.nombreCientifico}" title="#{bundle.ViewEspeciesAnimalesTitle_nombreCientifico}"/>
-                    <h:outputText value="#{bundle.ViewEspeciesAnimalesLabel_peligroExtincion}"/>
-                    <h:outputText value="#{especiesAnimalesController.selected.peligroExtincion}" title="#{bundle.ViewEspeciesAnimalesTitle_peligroExtincion}"/>
-                    <h:outputText value="#{bundle.ViewEspeciesAnimalesLabel_familiaEspecie}"/>
-                    <h:outputText value="#{especiesAnimalesController.selected.familiaEspecie}" title="#{bundle.ViewEspeciesAnimalesTitle_familiaEspecie}"/>
+                    <h:outputText value="#{bundle.ViewEspeciesAnimalesLabel_idEspecies}" class="form-label"/>
+                    <h:outputText value="#{especiesAnimalesController.selected.idEspecies}" 
+                                  title="#{bundle.ViewEspeciesAnimalesTitle_idEspecies}" class="form-label"/>
+                    <h:outputText value="#{bundle.ViewEspeciesAnimalesLabel_nombreComun}" class="form-label"/>
+                    <h:outputText value="#{especiesAnimalesController.selected.nombreComun}" 
+                                  title="#{bundle.ViewEspeciesAnimalesTitle_nombreComun}" class="form-label"/>
+                    <h:outputText value="#{bundle.ViewEspeciesAnimalesLabel_nombreCientifico}" class="form-label"/>
+                    <h:outputText value="#{especiesAnimalesController.selected.nombreCientifico}" 
+                                  title="#{bundle.ViewEspeciesAnimalesTitle_nombreCientifico}" class="form-label"/>
+                    <h:outputText value="#{bundle.ViewEspeciesAnimalesLabel_peligroExtincion}"
+                                  class="form-label"/>
+                    <h:outputText value="#{especiesAnimalesController.selected.peligroExtincion}" 
+                                  title="#{bundle.ViewEspeciesAnimalesTitle_peligroExtincion}"
+                                  class="form-label"/>
+                    <h:outputText value="#{bundle.ViewEspeciesAnimalesLabel_familiaEspecie}"
+                                  class="form-label"/>
+                    <h:outputText value="#{especiesAnimalesController.selected.familiaEspecie}"
+                                  title="#{bundle.ViewEspeciesAnimalesTitle_familiaEspecie}" 
+                                  class="form-label"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{especiesAnimalesController.destroyAndView}" value="#{bundle.ViewEspeciesAnimalesDestroyLink}"/>
-                <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewEspeciesAnimalesEditLink}"/>
-                <br />
-                <h:commandLink action="#{especiesAnimalesController.prepareCreate}" value="#{bundle.ViewEspeciesAnimalesCreateLink}" />
-                <br />
-                <h:commandLink action="#{especiesAnimalesController.prepareList}" value="#{bundle.ViewEspeciesAnimalesShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewEspeciesAnimalesIndexLink}"/>
-
+                <div class="row">
+                    <div class="col-md-2 text-center">
+                        <h:commandLink action="#{especiesAnimalesController.destroyAndView}" 
+                               value="#{bundle.ViewEspeciesAnimalesDestroyLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <h:link outcome="Edit" value="#{bundle.ViewEspeciesAnimalesEditLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-3 text-center">
+                         <h:commandLink action="#{especiesAnimalesController.prepareCreate}" 
+                               value="#{bundle.ViewEspeciesAnimalesCreateLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-3 text-center">
+                       <h:commandLink action="#{especiesAnimalesController.prepareList}" 
+                               value="#{bundle.ViewEspeciesAnimalesShowAllLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <h:link outcome="/index" value="#{bundle.ViewEspeciesAnimalesIndexLink}" class="btn btn-primary"/>
+                    </div>
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>

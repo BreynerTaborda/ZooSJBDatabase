@@ -15,24 +15,45 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditCiudadLabel_idCiudad}" for="idCiudad" />
-                    <h:inputText id="idCiudad" value="#{ciudadController.selected.idCiudad}" title="#{bundle.EditCiudadTitle_idCiudad}" required="true" requiredMessage="#{bundle.EditCiudadRequiredMessage_idCiudad}"/>
-                    <h:outputLabel value="#{bundle.EditCiudadLabel_nombreCuidad}" for="nombreCuidad" />
-                    <h:inputText id="nombreCuidad" value="#{ciudadController.selected.nombreCuidad}" title="#{bundle.EditCiudadTitle_nombreCuidad}" required="true" requiredMessage="#{bundle.EditCiudadRequiredMessage_nombreCuidad}"/>
-                    <h:outputLabel value="#{bundle.EditCiudadLabel_idpaisCiudad}" for="idpaisCiudad" />
-                    <h:selectOneMenu id="idpaisCiudad" value="#{ciudadController.selected.idpaisCiudad}" title="#{bundle.EditCiudadTitle_idpaisCiudad}" required="true" requiredMessage="#{bundle.EditCiudadRequiredMessage_idpaisCiudad}">
+                    <h:outputLabel value="#{bundle.EditCiudadLabel_idCiudad}" for="idCiudad" 
+                                   class="form-label mb-3"/>
+                    <h:inputText id="idCiudad" value="#{ciudadController.selected.idCiudad}" 
+                                 title="#{bundle.EditCiudadTitle_idCiudad}" required="true" 
+                                 requiredMessage="#{bundle.EditCiudadRequiredMessage_idCiudad}"
+                                 class="form-control mb-3"/>
+                    <h:outputLabel value="#{bundle.EditCiudadLabel_nombreCuidad}" for="nombreCuidad" 
+                                   class="form-label mb-3"/>
+                    <h:inputText id="nombreCuidad" value="#{ciudadController.selected.nombreCuidad}" 
+                                 title="#{bundle.EditCiudadTitle_nombreCuidad}" required="true" 
+                                 requiredMessage="#{bundle.EditCiudadRequiredMessage_nombreCuidad}"
+                                 class="form-control mb-3"/>
+                    <h:outputLabel value="#{bundle.EditCiudadLabel_idpaisCiudad}" for="idpaisCiudad" 
+                                   class="form-label mb-3" />
+                    <h:selectOneMenu id="idpaisCiudad" value="#{ciudadController.selected.idpaisCiudad}"
+                                     title="#{bundle.EditCiudadTitle_idpaisCiudad}" required="true" 
+                                     requiredMessage="#{bundle.EditCiudadRequiredMessage_idpaisCiudad}"
+                                     class="form-select mb-3">
                         <f:selectItems value="#{paisController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>
-                <h:commandLink action="#{ciudadController.update}" value="#{bundle.EditCiudadSaveLink}"/>
-                <br />
-                <br />
-                <h:link outcome="View" value="#{bundle.EditCiudadViewLink}"/>
-                <br />
-                <h:commandLink action="#{ciudadController.prepareList}" value="#{bundle.EditCiudadShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditCiudadIndexLink}" />
+                <br/>
+                <div class="row">
+                    <div class="col-md-1">
+                        <h:commandLink action="#{ciudadController.update}" value="#{bundle.EditCiudadSaveLink}" 
+                                       class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-1">
+                         <h:link outcome="View" value="#{bundle.EditCiudadViewLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h:commandLink action="#{ciudadController.prepareList}" value="#{bundle.EditCiudadShowAllLink}" 
+                               immediate="true" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-1">
+                        <h:link outcome="/index" value="#{bundle.EditCiudadIndexLink}" class="btn btn-primary"/>
+                    </div>
+                </div>
+               
             </h:form>
         </ui:define>
     </ui:composition>

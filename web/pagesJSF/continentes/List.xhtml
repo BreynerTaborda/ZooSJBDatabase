@@ -19,7 +19,9 @@
                     <h:outputText value="#{continentesController.pagination.pageFirstItem + 1}..#{continentesController.pagination.pageLastItem + 1}/#{continentesController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{continentesController.previous}" value="#{bundle.Previous} #{continentesController.pagination.pageSize}" rendered="#{continentesController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{continentesController.next}" value="#{bundle.Next} #{continentesController.pagination.pageSize}" rendered="#{continentesController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{continentesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:dataTable value="#{continentesController.items}" var="item" border="0" cellpadding="2" 
+                                 cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" 
+                                 class="table">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListContinentesTitle_idContinente}"/>
@@ -36,19 +38,23 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{continentesController.prepareView}" value="#{bundle.ListContinentesViewLink}"/>
+                            <h:commandLink action="#{continentesController.prepareView}" value="#{bundle.ListContinentesViewLink}"  class="btn btn-primary"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{continentesController.prepareEdit}" value="#{bundle.ListContinentesEditLink}"/>
+                            <h:commandLink action="#{continentesController.prepareEdit}" value="#{bundle.ListContinentesEditLink}"  class="btn btn-primary"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{continentesController.destroy}" value="#{bundle.ListContinentesDestroyLink}"/>
+                            <h:commandLink action="#{continentesController.destroy}" value="#{bundle.ListContinentesDestroyLink}"  class="btn btn-primary"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{continentesController.prepareCreate}" value="#{bundle.ListContinentesCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListContinentesIndexLink}"/>
+                <div class="row">
+                    <div class="col-md-3 text-center">
+                                        <h:commandLink action="#{continentesController.prepareCreate}" value="#{bundle.ListContinentesCreateLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-1">
+                        <h:link outcome="/index" value="#{bundle.ListContinentesIndexLink}" class="btn btn-primary"/>
+                    </div>
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>

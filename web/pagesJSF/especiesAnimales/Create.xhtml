@@ -15,27 +15,60 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateEspeciesAnimalesLabel_idEspecies}" for="idEspecies" />
-                    <h:inputText id="idEspecies" value="#{especiesAnimalesController.selected.idEspecies}" title="#{bundle.CreateEspeciesAnimalesTitle_idEspecies}" required="true" requiredMessage="#{bundle.CreateEspeciesAnimalesRequiredMessage_idEspecies}"/>
-                    <h:outputLabel value="#{bundle.CreateEspeciesAnimalesLabel_nombreComun}" for="nombreComun" />
-                    <h:inputText id="nombreComun" value="#{especiesAnimalesController.selected.nombreComun}" title="#{bundle.CreateEspeciesAnimalesTitle_nombreComun}" required="true" requiredMessage="#{bundle.CreateEspeciesAnimalesRequiredMessage_nombreComun}"/>
-                    <h:outputLabel value="#{bundle.CreateEspeciesAnimalesLabel_nombreCientifico}" for="nombreCientifico" />
-                    <h:inputText id="nombreCientifico" value="#{especiesAnimalesController.selected.nombreCientifico}" title="#{bundle.CreateEspeciesAnimalesTitle_nombreCientifico}" required="true" requiredMessage="#{bundle.CreateEspeciesAnimalesRequiredMessage_nombreCientifico}"/>
-                    <h:outputLabel value="#{bundle.CreateEspeciesAnimalesLabel_peligroExtincion}" for="peligroExtincion" />
-                    <h:inputText id="peligroExtincion" value="#{especiesAnimalesController.selected.peligroExtincion}" title="#{bundle.CreateEspeciesAnimalesTitle_peligroExtincion}" required="true" requiredMessage="#{bundle.CreateEspeciesAnimalesRequiredMessage_peligroExtincion}"/>
-                    <h:outputLabel value="#{bundle.CreateEspeciesAnimalesLabel_familiaEspecie}" for="familiaEspecie" />
-                    <h:selectOneMenu id="familiaEspecie" value="#{especiesAnimalesController.selected.familiaEspecie}" title="#{bundle.CreateEspeciesAnimalesTitle_familiaEspecie}" required="true" requiredMessage="#{bundle.CreateEspeciesAnimalesRequiredMessage_familiaEspecie}">
+                    <h:outputLabel value="#{bundle.CreateEspeciesAnimalesLabel_idEspecies}" for="idEspecies"
+                                   class="form-label mb-3"/>
+                    <h:inputText id="idEspecies" value="#{especiesAnimalesController.selected.idEspecies}" 
+                                 title="#{bundle.CreateEspeciesAnimalesTitle_idEspecies}" required="true" 
+                                 requiredMessage="#{bundle.CreateEspeciesAnimalesRequiredMessage_idEspecies}"
+                                 class="form-control mb-3"/>
+                    <h:outputLabel value="#{bundle.CreateEspeciesAnimalesLabel_nombreComun}" for="nombreComun" 
+                                   class="form-label mb-3"/>
+                    <h:inputText id="nombreComun" value="#{especiesAnimalesController.selected.nombreComun}" 
+                                 title="#{bundle.CreateEspeciesAnimalesTitle_nombreComun}" required="true" 
+                                 requiredMessage="#{bundle.CreateEspeciesAnimalesRequiredMessage_nombreComun}"
+                                 class="form-control mb-3"/>
+                    <h:outputLabel value="#{bundle.CreateEspeciesAnimalesLabel_nombreCientifico}" 
+                                   for="nombreCientifico" class="form-label mb-3"/>
+                    <h:inputText id="nombreCientifico" 
+                                 value="#{especiesAnimalesController.selected.nombreCientifico}" 
+                                 title="#{bundle.CreateEspeciesAnimalesTitle_nombreCientifico}" required="true" 
+                                 requiredMessage="#{bundle.CreateEspeciesAnimalesRequiredMessage_nombreCientifico}"
+                                 class="form-control mb-3"/>
+                    <h:outputLabel value="#{bundle.CreateEspeciesAnimalesLabel_peligroExtincion}" 
+                                   for="peligroExtincion" class="form-label mb-3"/>
+                    <h:inputText id="peligroExtincion" 
+                                 value="#{especiesAnimalesController.selected.peligroExtincion}" 
+                                 title="#{bundle.CreateEspeciesAnimalesTitle_peligroExtincion}" required="true" 
+                                 requiredMessage="#{bundle.CreateEspeciesAnimalesRequiredMessage_peligroExtincion}"
+                                 class="form-control mb-3"/>
+                    <h:outputLabel value="#{bundle.CreateEspeciesAnimalesLabel_familiaEspecie}" 
+                                   for="familiaEspecie" class="form-label mb-3"/>
+                    <h:selectOneMenu id="familiaEspecie" 
+                                     value="#{especiesAnimalesController.selected.familiaEspecie}"
+                                     title="#{bundle.CreateEspeciesAnimalesTitle_familiaEspecie}" 
+                                     required="true" 
+                                    requiredMessage="#{bundle.CreateEspeciesAnimalesRequiredMessage_familiaEspecie}"
+                                    class="form-select mb-3">
                         <f:selectItems value="#{familiasAnimalesController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{especiesAnimalesController.create}" value="#{bundle.CreateEspeciesAnimalesSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{especiesAnimalesController.prepareList}" value="#{bundle.CreateEspeciesAnimalesShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateEspeciesAnimalesIndexLink}"/>
+                 <div class="row">
+                    <div class="col-md-1">
+                        <h:commandLink action="#{especiesAnimalesController.create}" 
+                               value="#{bundle.CreateEspeciesAnimalesSaveLink}" 
+                               class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-3 text-center">
+                         <h:commandLink action="#{especiesAnimalesController.prepareList}" 
+                               value="#{bundle.CreateEspeciesAnimalesShowAllLink}" immediate="true"
+                               class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-1">
+                        <h:link outcome="/index" value="#{bundle.CreateEspeciesAnimalesIndexLink}"
+                        class="btn btn-primary"/>
+                    </div>
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>

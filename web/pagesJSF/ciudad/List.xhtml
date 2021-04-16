@@ -19,7 +19,9 @@
                     <h:outputText value="#{ciudadController.pagination.pageFirstItem + 1}..#{ciudadController.pagination.pageLastItem + 1}/#{ciudadController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{ciudadController.previous}" value="#{bundle.Previous} #{ciudadController.pagination.pageSize}" rendered="#{ciudadController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{ciudadController.next}" value="#{bundle.Next} #{ciudadController.pagination.pageSize}" rendered="#{ciudadController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{ciudadController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:dataTable value="#{ciudadController.items}" var="item" border="0" cellpadding="2" 
+                                 cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" 
+                                 rules="all" class="table">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCiudadTitle_idCiudad}"/>
@@ -42,19 +44,24 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{ciudadController.prepareView}" value="#{bundle.ListCiudadViewLink}"/>
+                            <h:commandLink action="#{ciudadController.prepareView}" value="#{bundle.ListCiudadViewLink}" class="btn btn-primary"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{ciudadController.prepareEdit}" value="#{bundle.ListCiudadEditLink}"/>
+                            <h:commandLink action="#{ciudadController.prepareEdit}" value="#{bundle.ListCiudadEditLink}" class="btn btn-primary"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{ciudadController.destroy}" value="#{bundle.ListCiudadDestroyLink}"/>
+                            <h:commandLink action="#{ciudadController.destroy}" value="#{bundle.ListCiudadDestroyLink}" class="btn btn-primary"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{ciudadController.prepareCreate}" value="#{bundle.ListCiudadCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListCiudadIndexLink}"/>
+                <div class="row">
+                    <div class="col-md-3 text-center">
+                        <h:commandLink action="#{ciudadController.prepareCreate}" value="#{bundle.ListCiudadCreateLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-1">
+                         <h:link outcome="/index" value="#{bundle.ListCiudadIndexLink}" class="btn btn-primary"/>
+                    </div>
+                </div>
+                           
             </h:form>
         </ui:define>
     </ui:composition>

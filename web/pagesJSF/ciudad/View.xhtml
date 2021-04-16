@@ -15,25 +15,35 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewCiudadLabel_idCiudad}"/>
-                    <h:outputText value="#{ciudadController.selected.idCiudad}" title="#{bundle.ViewCiudadTitle_idCiudad}"/>
-                    <h:outputText value="#{bundle.ViewCiudadLabel_nombreCuidad}"/>
-                    <h:outputText value="#{ciudadController.selected.nombreCuidad}" title="#{bundle.ViewCiudadTitle_nombreCuidad}"/>
-                    <h:outputText value="#{bundle.ViewCiudadLabel_idpaisCiudad}"/>
-                    <h:outputText value="#{ciudadController.selected.idpaisCiudad}" title="#{bundle.ViewCiudadTitle_idpaisCiudad}"/>
+                    <h:outputText value="#{bundle.ViewCiudadLabel_idCiudad}" class="form-label"/>
+                    <h:outputText value="#{ciudadController.selected.idCiudad}" 
+                                  title="#{bundle.ViewCiudadTitle_idCiudad}" class="form-label"/>
+                    <h:outputText value="#{bundle.ViewCiudadLabel_nombreCuidad}" class="form-label"/>
+                    <h:outputText value="#{ciudadController.selected.nombreCuidad}" 
+                                  title="#{bundle.ViewCiudadTitle_nombreCuidad}" class="form-label"/>
+                    <h:outputText value="#{bundle.ViewCiudadLabel_idpaisCiudad}" class="form-label"/>
+                    <h:outputText value="#{ciudadController.selected.idpaisCiudad}" 
+                                  title="#{bundle.ViewCiudadTitle_idpaisCiudad}" class="form-label"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{ciudadController.destroyAndView}" value="#{bundle.ViewCiudadDestroyLink}"/>
-                <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewCiudadEditLink}"/>
-                <br />
-                <h:commandLink action="#{ciudadController.prepareCreate}" value="#{bundle.ViewCiudadCreateLink}" />
-                <br />
-                <h:commandLink action="#{ciudadController.prepareList}" value="#{bundle.ViewCiudadShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewCiudadIndexLink}"/>
+                <div class="row">
+                    <div class="col-md-2 text-center">
+                         <h:commandLink action="#{ciudadController.destroyAndView}" value="#{bundle.ViewCiudadDestroyLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <h:link outcome="Edit" value="#{bundle.ViewCiudadEditLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h:commandLink action="#{ciudadController.prepareCreate}" value="#{bundle.ViewCiudadCreateLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h:commandLink action="#{ciudadController.prepareList}" value="#{bundle.ViewCiudadShowAllLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <h:link outcome="/index" value="#{bundle.ViewCiudadIndexLink}" class="btn btn-primary"/>
+                    </div>
+                </div>
+               
 
             </h:form>
         </ui:define>
