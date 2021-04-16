@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAnimalesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAnimalesLabel_idAnimal}" for="idAnimal" class="form-label mb-3"/>
+                    <h:inputText id="idAnimal" value="#{animalesController.selected.idAnimal}" title="#{bundle.CreateAnimalesTitle_idAnimal}" required="true" requiredMessage="#{bundle.CreateAnimalesRequiredMessage_idAnimal}" class="form-control mb-3"/>
+                    <h:outputLabel value="#{bundle.CreateAnimalesLabel_nombreAnimal}" for="nombreAnimal" class="form-label mb-3"/>
+                    <h:inputText id="nombreAnimal" value="#{animalesController.selected.nombreAnimal}" title="#{bundle.CreateAnimalesTitle_nombreAnimal}" required="true" requiredMessage="#{bundle.CreateAnimalesRequiredMessage_nombreAnimal}" class="form-control mb-3"/>
+                    <h:outputLabel value="#{bundle.CreateAnimalesLabel_genero}" for="genero" class="form-label mb-3"/>
+                    <h:inputText id="genero" value="#{animalesController.selected.genero}" title="#{bundle.CreateAnimalesTitle_genero}" class="form-control mb-3"/>
+                    <h:outputLabel value="#{bundle.CreateAnimalesLabel_fecNac}" class="form-label mb-3"/>
+                    <h:inputText  id="fecNac" value="#{animalesController.selected.fecNac}" title="#{bundle.CreateAnimalesTitle_fecNac}" required="true" requiredMessage="#{bundle.CreateAnimalesRequiredMessage_fecNac}" class="form-control mb-3">
+                        <f:convertDateTime pattern="yyyy/MM/dd" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAnimalesLabel_especieAnimal}" for="especieAnimal" class="form-label mb-3"/>
+                    <h:selectOneMenu id="especieAnimal" value="#{animalesController.selected.especieAnimal}" title="#{bundle.CreateAnimalesTitle_especieAnimal}" required="true" requiredMessage="#{bundle.CreateAnimalesRequiredMessage_especieAnimal}" class="form-select mb-3">
+                        <f:selectItems value="#{especiesAnimalesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateAnimalesLabel_paisOrigen}" for="paisOrigen" class="form-label mb-3"/>
+                    <h:selectOneMenu id="paisOrigen" value="#{animalesController.selected.paisOrigen}" title="#{bundle.CreateAnimalesTitle_paisOrigen}" required="true" requiredMessage="#{bundle.CreateAnimalesRequiredMessage_paisOrigen}" class="form-select mb-3">
+                        <f:selectItems value="#{paisController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <div class="row">
+                    <div class="col-md-1">
+                        <h:commandLink action="#{animalesController.create}" value="#{bundle.CreateAnimalesSaveLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-3 text-center">
+                    <h:commandLink action="#{animalesController.prepareList}" value="#{bundle.CreateAnimalesShowAllLink}" immediate="true" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-1">
+                    <h:link outcome="/index" value="#{bundle.CreateAnimalesIndexLink}" class="btn btn-primary "/>
+                    </div>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+    
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAnimalesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAnimalesLabel_idAnimal}" for="idAnimal" />
+                    <h:inputText id="idAnimal" value="#{animalesController.selected.idAnimal}" title="#{bundle.EditAnimalesTitle_idAnimal}" required="true" requiredMessage="#{bundle.EditAnimalesRequiredMessage_idAnimal}"/>
+                    <h:outputLabel value="#{bundle.EditAnimalesLabel_nombreAnimal}" for="nombreAnimal" />
+                    <h:inputText id="nombreAnimal" value="#{animalesController.selected.nombreAnimal}" title="#{bundle.EditAnimalesTitle_nombreAnimal}" required="true" requiredMessage="#{bundle.EditAnimalesRequiredMessage_nombreAnimal}"/>
+                    <h:outputLabel value="#{bundle.EditAnimalesLabel_genero}" for="genero" />
+                    <h:inputText id="genero" value="#{animalesController.selected.genero}" title="#{bundle.EditAnimalesTitle_genero}" />
+                    <h:outputLabel value="#{bundle.EditAnimalesLabel_fecNac}" for="fecNac" />
+                    <h:inputText id="fecNac" value="#{animalesController.selected.fecNac}" title="#{bundle.EditAnimalesTitle_fecNac}" required="true" requiredMessage="#{bundle.EditAnimalesRequiredMessage_fecNac}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditAnimalesLabel_especieAnimal}" for="especieAnimal" />
+                    <h:selectOneMenu id="especieAnimal" value="#{animalesController.selected.especieAnimal}" title="#{bundle.EditAnimalesTitle_especieAnimal}" required="true" requiredMessage="#{bundle.EditAnimalesRequiredMessage_especieAnimal}">
+                        <f:selectItems value="#{especiesAnimalesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditAnimalesLabel_paisOrigen}" for="paisOrigen" />
+                    <h:selectOneMenu id="paisOrigen" value="#{animalesController.selected.paisOrigen}" title="#{bundle.EditAnimalesTitle_paisOrigen}" required="true" requiredMessage="#{bundle.EditAnimalesRequiredMessage_paisOrigen}">
+                        <f:selectItems value="#{paisController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{animalesController.update}" value="#{bundle.EditAnimalesSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditAnimalesViewLink}"/>
+                <br />
+                <h:commandLink action="#{animalesController.prepareList}" value="#{bundle.EditAnimalesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditAnimalesIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

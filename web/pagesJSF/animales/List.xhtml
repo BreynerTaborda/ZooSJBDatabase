@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAnimalesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAnimalesEmpty}" rendered="#{animalesController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{animalesController.items.rowCount > 0}">
+                    <h:outputText value="#{animalesController.pagination.pageFirstItem + 1}..#{animalesController.pagination.pageLastItem + 1}/#{animalesController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{animalesController.previous}" value="#{bundle.Previous} #{animalesController.pagination.pageSize}" rendered="#{animalesController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{animalesController.next}" value="#{bundle.Next} #{animalesController.pagination.pageSize}" rendered="#{animalesController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{animalesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnimalesTitle_idAnimal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idAnimal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnimalesTitle_nombreAnimal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreAnimal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnimalesTitle_genero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.genero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnimalesTitle_fecNac}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fecNac}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnimalesTitle_especieAnimal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.especieAnimal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnimalesTitle_paisOrigen}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.paisOrigen}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{animalesController.prepareView}" value="#{bundle.ListAnimalesViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{animalesController.prepareEdit}" value="#{bundle.ListAnimalesEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{animalesController.destroy}" value="#{bundle.ListAnimalesDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{animalesController.prepareCreate}" value="#{bundle.ListAnimalesCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAnimalesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

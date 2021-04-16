@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAnimalesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAnimalesLabel_idAnimal}"/>
+                    <h:outputText value="#{animalesController.selected.idAnimal}" title="#{bundle.ViewAnimalesTitle_idAnimal}"/>
+                    <h:outputText value="#{bundle.ViewAnimalesLabel_nombreAnimal}"/>
+                    <h:outputText value="#{animalesController.selected.nombreAnimal}" title="#{bundle.ViewAnimalesTitle_nombreAnimal}"/>
+                    <h:outputText value="#{bundle.ViewAnimalesLabel_genero}"/>
+                    <h:outputText value="#{animalesController.selected.genero}" title="#{bundle.ViewAnimalesTitle_genero}"/>
+                    <h:outputText value="#{bundle.ViewAnimalesLabel_fecNac}"/>
+                    <h:outputText value="#{animalesController.selected.fecNac}" title="#{bundle.ViewAnimalesTitle_fecNac}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewAnimalesLabel_especieAnimal}"/>
+                    <h:outputText value="#{animalesController.selected.especieAnimal}" title="#{bundle.ViewAnimalesTitle_especieAnimal}"/>
+                    <h:outputText value="#{bundle.ViewAnimalesLabel_paisOrigen}"/>
+                    <h:outputText value="#{animalesController.selected.paisOrigen}" title="#{bundle.ViewAnimalesTitle_paisOrigen}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{animalesController.destroyAndView}" value="#{bundle.ViewAnimalesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAnimalesEditLink}"/>
+                <br />
+                <h:commandLink action="#{animalesController.prepareCreate}" value="#{bundle.ViewAnimalesCreateLink}" />
+                <br />
+                <h:commandLink action="#{animalesController.prepareList}" value="#{bundle.ViewAnimalesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAnimalesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
