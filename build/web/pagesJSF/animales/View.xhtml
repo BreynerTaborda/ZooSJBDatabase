@@ -16,33 +16,38 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputText value="#{bundle.ViewAnimalesLabel_idAnimal}"/>
-                    <h:outputText value="#{animalesController.selected.idAnimal}" title="#{bundle.ViewAnimalesTitle_idAnimal}"/>
-                    <h:outputText value="#{bundle.ViewAnimalesLabel_nombreAnimal}"/>
-                    <h:outputText value="#{animalesController.selected.nombreAnimal}" title="#{bundle.ViewAnimalesTitle_nombreAnimal}"/>
+                    <h:outputText value="#{animalesController.selected.idAnimal}" title="#{bundle.ViewAnimalesTitle_idAnimal}" class="form-label"/>
+                    <h:outputText value="#{bundle.ViewAnimalesLabel_nombreAnimal}" class="form-label"/>
+                    <h:outputText value="#{animalesController.selected.nombreAnimal}" title="#{bundle.ViewAnimalesTitle_nombreAnimal}" class="form-label"/>
                     <h:outputText value="#{bundle.ViewAnimalesLabel_genero}"/>
-                    <h:outputText value="#{animalesController.selected.genero}" title="#{bundle.ViewAnimalesTitle_genero}"/>
-                    <h:outputText value="#{bundle.ViewAnimalesLabel_fecNac}"/>
-                    <h:outputText value="#{animalesController.selected.fecNac}" title="#{bundle.ViewAnimalesTitle_fecNac}">
+                    <h:outputText value="#{animalesController.selected.genero}" title="#{bundle.ViewAnimalesTitle_genero}" class="form-label"/>
+                    <h:outputText value="#{bundle.ViewAnimalesLabel_fecNac}" class="form-label"/>
+                    <h:outputText value="#{animalesController.selected.fecNac}" title="#{bundle.ViewAnimalesTitle_fecNac}" class="form-label">
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                     </h:outputText>
-                    <h:outputText value="#{bundle.ViewAnimalesLabel_especieAnimal}"/>
-                    <h:outputText value="#{animalesController.selected.especieAnimal}" title="#{bundle.ViewAnimalesTitle_especieAnimal}"/>
-                    <h:outputText value="#{bundle.ViewAnimalesLabel_paisOrigen}"/>
-                    <h:outputText value="#{animalesController.selected.paisOrigen}" title="#{bundle.ViewAnimalesTitle_paisOrigen}"/>
+                    <h:outputText value="#{bundle.ViewAnimalesLabel_especieAnimal}" class="form-label"/>
+                    <h:outputText value="#{animalesController.selected.especieAnimal}" title="#{bundle.ViewAnimalesTitle_especieAnimal}" class="form-label"/>
+                    <h:outputText value="#{bundle.ViewAnimalesLabel_paisOrigen}" class="form-label"/>
+                    <h:outputText value="#{animalesController.selected.paisOrigen}" title="#{bundle.ViewAnimalesTitle_paisOrigen}" class="form-label"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{animalesController.destroyAndView}" value="#{bundle.ViewAnimalesDestroyLink}"/>
-                <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewAnimalesEditLink}"/>
-                <br />
-                <h:commandLink action="#{animalesController.prepareCreate}" value="#{bundle.ViewAnimalesCreateLink}" />
-                <br />
-                <h:commandLink action="#{animalesController.prepareList}" value="#{bundle.ViewAnimalesShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewAnimalesIndexLink}"/>
-
+                <div class="row">
+                    <div class="col-md-2 text-center">
+                        <h:commandLink action="#{animalesController.destroyAndView}" value="#{bundle.ViewAnimalesDestroyLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <h:link outcome="Edit" value="#{bundle.ViewAnimalesEditLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h:commandLink action="#{animalesController.prepareCreate}" value="#{bundle.ViewAnimalesCreateLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h:commandLink action="#{animalesController.prepareList}" value="#{bundle.ViewAnimalesShowAllLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <h:link outcome="/index" value="#{bundle.ViewAnimalesIndexLink}" class="btn btn-primary"/>
+                    </div>
+                </div>     
             </h:form>
         </ui:define>
     </ui:composition>
