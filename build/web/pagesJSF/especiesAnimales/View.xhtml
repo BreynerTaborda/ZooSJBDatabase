@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEspeciesAnimalesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewEspeciesAnimalesLabel_idEspecies}" class="form-label"/>
+                    <h:outputText value="#{especiesAnimalesController.selected.idEspecies}" 
+                                  title="#{bundle.ViewEspeciesAnimalesTitle_idEspecies}" class="form-label"/>
+                    <h:outputText value="#{bundle.ViewEspeciesAnimalesLabel_nombreComun}" class="form-label"/>
+                    <h:outputText value="#{especiesAnimalesController.selected.nombreComun}" 
+                                  title="#{bundle.ViewEspeciesAnimalesTitle_nombreComun}" class="form-label"/>
+                    <h:outputText value="#{bundle.ViewEspeciesAnimalesLabel_nombreCientifico}" class="form-label"/>
+                    <h:outputText value="#{especiesAnimalesController.selected.nombreCientifico}" 
+                                  title="#{bundle.ViewEspeciesAnimalesTitle_nombreCientifico}" class="form-label"/>
+                    <h:outputText value="#{bundle.ViewEspeciesAnimalesLabel_peligroExtincion}"
+                                  class="form-label"/>
+                    <h:outputText value="#{especiesAnimalesController.selected.peligroExtincion}" 
+                                  title="#{bundle.ViewEspeciesAnimalesTitle_peligroExtincion}"
+                                  class="form-label"/>
+                    <h:outputText value="#{bundle.ViewEspeciesAnimalesLabel_familiaEspecie}"
+                                  class="form-label"/>
+                    <h:outputText value="#{especiesAnimalesController.selected.familiaEspecie}"
+                                  title="#{bundle.ViewEspeciesAnimalesTitle_familiaEspecie}" 
+                                  class="form-label"/>
+                </h:panelGrid>
+                <br />
+                <div class="row">
+                    <div class="col-md-2 text-center">
+                        <h:commandLink action="#{especiesAnimalesController.destroyAndView}" 
+                               value="#{bundle.ViewEspeciesAnimalesDestroyLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <h:link outcome="Edit" value="#{bundle.ViewEspeciesAnimalesEditLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-3 text-center">
+                         <h:commandLink action="#{especiesAnimalesController.prepareCreate}" 
+                               value="#{bundle.ViewEspeciesAnimalesCreateLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-3 text-center">
+                       <h:commandLink action="#{especiesAnimalesController.prepareList}" 
+                               value="#{bundle.ViewEspeciesAnimalesShowAllLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <h:link outcome="/index" value="#{bundle.ViewEspeciesAnimalesIndexLink}" class="btn btn-primary"/>
+                    </div>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

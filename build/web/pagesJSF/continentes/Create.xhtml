@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateContinentesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateContinentesLabel_idContinente}" 
+                                   for="idContinente" class="form-label mb-3"/>
+                    <h:inputText id="idContinente" value="#{continentesController.selected.idContinente}" 
+                                 title="#{bundle.CreateContinentesTitle_idContinente}" required="true" 
+                                 requiredMessage="#{bundle.CreateContinentesRequiredMessage_idContinente}"
+                                 class="form-control mb-3"/>
+                    <h:outputLabel value="#{bundle.CreateContinentesLabel_nombrecontinente}" 
+                                   for="nombrecontinente" class="form-label mb-3"/>
+                    <h:inputText id="nombrecontinente" value="#{continentesController.selected.nombrecontinente}"
+                                 title="#{bundle.CreateContinentesTitle_nombrecontinente}" required="true" 
+                                 requiredMessage="#{bundle.CreateContinentesRequiredMessage_nombrecontinente}"
+                                 class="form-control mb-3"/>
+                </h:panelGrid>
+                <br />
+                <div class="row">
+                    <div class="col-md-1">
+                        <h:commandLink action="#{continentesController.create}" 
+                                       value="#{bundle.CreateContinentesSaveLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h:commandLink action="#{continentesController.prepareList}" 
+                                       value="#{bundle.CreateContinentesShowAllLink}" immediate="true"
+                                       class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-1">
+                        <h:link outcome="/index" value="#{bundle.CreateContinentesIndexLink}" class="btn btn-primary"/>
+                    </div>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

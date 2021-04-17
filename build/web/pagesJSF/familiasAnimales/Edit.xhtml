@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditFamiliasAnimalesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel class="form-label mb-3" value="#{bundle.EditFamiliasAnimalesLabel_idFamilias}" for="idFamilias" />
+                    <h:inputText class="form-control mb-3" id="idFamilias" value="#{familiasAnimalesController.selected.idFamilias}" title="#{bundle.EditFamiliasAnimalesTitle_idFamilias}" required="true" requiredMessage="#{bundle.EditFamiliasAnimalesRequiredMessage_idFamilias}"/>
+                    <h:outputLabel class="form-label mb-3" value="#{bundle.EditFamiliasAnimalesLabel_nombreFamilia}" for="nombreFamilia" />
+                    <h:inputText class="form-control mb-3" id="nombreFamilia" value="#{familiasAnimalesController.selected.nombreFamilia}" title="#{bundle.EditFamiliasAnimalesTitle_nombreFamilia}" required="true" requiredMessage="#{bundle.EditFamiliasAnimalesRequiredMessage_nombreFamilia}"/>
+                </h:panelGrid>
+
+                <div class="row">
+                    <div class="col-md-1">
+                        <h:commandLink class="btn btn-primary" action="#{familiasAnimalesController.update}" value="#{bundle.EditFamiliasAnimalesSaveLink}"/>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h:link class="btn btn-primary" outcome="View" value="#{bundle.EditFamiliasAnimalesViewLink}"/>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h:commandLink class="btn btn-primary" action="#{familiasAnimalesController.prepareList}" value="#{bundle.EditFamiliasAnimalesShowAllLink}" immediate="true"/>
+                    </div>
+                    <div class="col-md-1">
+                        <h:link class="btn btn-primary" outcome="/index" value="#{bundle.EditFamiliasAnimalesIndexLink}" />
+                    </div>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

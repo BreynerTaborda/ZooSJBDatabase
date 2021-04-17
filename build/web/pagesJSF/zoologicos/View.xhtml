@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewZoologicosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewZoologicosLabel_idZoo}"/>
+                    <h:outputText value="#{zoologicosController.selected.idZoo}" title="#{bundle.ViewZoologicosTitle_idZoo}"/>
+                    <h:outputText value="#{bundle.ViewZoologicosLabel_nombreZoo}"/>
+                    <h:outputText value="#{zoologicosController.selected.nombreZoo}" title="#{bundle.ViewZoologicosTitle_nombreZoo}"/>
+                    <h:outputText value="#{bundle.ViewZoologicosLabel_tamaãO}"/>
+                    <h:outputText value="#{zoologicosController.selected.tamaãO}" title="#{bundle.ViewZoologicosTitle_tamaãO}"/>
+                    <h:outputText value="#{bundle.ViewZoologicosLabel_presupuesto}"/>
+                    <h:outputText value="#{zoologicosController.selected.presupuesto}" title="#{bundle.ViewZoologicosTitle_presupuesto}"/>
+                    <h:outputText value="#{bundle.ViewZoologicosLabel_ciudadZoo}"/>
+                    <h:outputText value="#{zoologicosController.selected.ciudadZoo}" title="#{bundle.ViewZoologicosTitle_ciudadZoo}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink class="btn btn-primary" action="#{zoologicosController.destroyAndView}" value="#{bundle.ViewZoologicosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link class="btn btn-primary" outcome="Edit" value="#{bundle.ViewZoologicosEditLink}"/>
+                <br />
+                <h:commandLink class="btn btn-primary" action="#{zoologicosController.prepareCreate}" value="#{bundle.ViewZoologicosCreateLink}" />
+                <br />
+                <h:commandLink class="btn btn-primary" action="#{zoologicosController.prepareList}" value="#{bundle.ViewZoologicosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link class="btn btn-primary" outcome="/index" value="#{bundle.ViewZoologicosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

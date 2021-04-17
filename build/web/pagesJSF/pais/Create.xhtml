@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePaisTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel class="form-label mb-3" value="#{bundle.CreatePaisLabel_idPais}" for="idPais" />
+                    <h:inputText class="form-control mb-3" id="idPais" value="#{paisController.selected.idPais}" title="#{bundle.CreatePaisTitle_idPais}" required="true" requiredMessage="#{bundle.CreatePaisRequiredMessage_idPais}"/>
+                    <h:outputLabel class="form-label mb-3" value="#{bundle.CreatePaisLabel_nombrePais}" for="nombrePais" />
+                    <h:inputText class="form-control mb-3" id="nombrePais" value="#{paisController.selected.nombrePais}" title="#{bundle.CreatePaisTitle_nombrePais}" required="true" requiredMessage="#{bundle.CreatePaisRequiredMessage_nombrePais}"/>
+                    <h:outputLabel class="form-label mb-3" value="#{bundle.CreatePaisLabel_idcontinentePais}" for="idcontinentePais" />
+                    <h:selectOneMenu class="form-select mb-3" id="idcontinentePais" value="#{paisController.selected.idcontinentePais}" title="#{bundle.CreatePaisTitle_idcontinentePais}" required="true" requiredMessage="#{bundle.CreatePaisRequiredMessage_idcontinentePais}">
+                        <f:selectItems value="#{continentesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <div class="row">
+                    <div class="col-md-1">
+                        <h:commandLink class="btn btn-primary" action="#{paisController.create}" value="#{bundle.CreatePaisSaveLink}" />
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h:commandLink class="btn btn-primary" action="#{paisController.prepareList}" value="#{bundle.CreatePaisShowAllLink}" immediate="true"/>
+                    </div>
+                    <div class="col-md-1">
+                        <h:link class="btn btn-primary" outcome="/index" value="#{bundle.CreatePaisIndexLink}"/>
+                    </div>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

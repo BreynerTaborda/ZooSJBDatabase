@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewContinentesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewContinentesLabel_idContinente}" class="form-label"/>
+                    <h:outputText value="#{continentesController.selected.idContinente}" 
+                                  title="#{bundle.ViewContinentesTitle_idContinente}" class="form-label"/>
+                    <h:outputText value="#{bundle.ViewContinentesLabel_nombrecontinente}" class="form-label"/>
+                    <h:outputText value="#{continentesController.selected.nombrecontinente}" 
+                                  title="#{bundle.ViewContinentesTitle_nombrecontinente}" class="form-label"/>
+                </h:panelGrid>
+                <br />
+                <div class="row">
+                    <div class="col-md-2 text-center">
+                         <h:commandLink action="#{continentesController.destroyAndView}" 
+                               value="#{bundle.ViewContinentesDestroyLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <h:link outcome="Edit" value="#{bundle.ViewContinentesEditLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-3 text-center">
+                         <h:commandLink action="#{continentesController.prepareCreate}" 
+                               value="#{bundle.ViewContinentesCreateLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h:commandLink action="#{continentesController.prepareList}" 
+                               value="#{bundle.ViewContinentesShowAllLink}" class="btn btn-primary"/>
+                    </div>
+                    <div class="col-md-2 text-center">
+                       <h:link outcome="/index" value="#{bundle.ViewContinentesIndexLink}" class="btn btn-primary"/>
+                    </div>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
