@@ -19,7 +19,9 @@
                     <h:outputText value="#{paisController.pagination.pageFirstItem + 1}..#{paisController.pagination.pageLastItem + 1}/#{paisController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{paisController.previous}" value="#{bundle.Previous} #{paisController.pagination.pageSize}" rendered="#{paisController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{paisController.next}" value="#{bundle.Next} #{paisController.pagination.pageSize}" rendered="#{paisController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{paisController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:dataTable value="#{paisController.items}" var="item" border="0" 
+                        cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" 
+                        rules="all" class="table">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListPaisTitle_idPais}"/>
@@ -42,19 +44,23 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{paisController.prepareView}" value="#{bundle.ListPaisViewLink}"/>
+                            <h:commandLink class="btn btn-primary" action="#{paisController.prepareView}" value="#{bundle.ListPaisViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{paisController.prepareEdit}" value="#{bundle.ListPaisEditLink}"/>
+                            <h:commandLink class="btn btn-primary" action="#{paisController.prepareEdit}" value="#{bundle.ListPaisEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{paisController.destroy}" value="#{bundle.ListPaisDestroyLink}"/>
+                            <h:commandLink class="btn btn-primary" action="#{paisController.destroy}" value="#{bundle.ListPaisDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink class="btn btn-primary" action="#{paisController.prepareCreate}" value="#{bundle.ListPaisCreateLink}"/>
-                <br />
-                <br />
-                <h:link class="btn btn-primary" outcome="/index" value="#{bundle.ListPaisIndexLink}"/>
+                <div class="row">
+                    <div class="col-md-3 text-center">
+                        <h:commandLink class="btn btn-primary" action="#{paisController.prepareCreate}" value="#{bundle.ListPaisCreateLink}"/>
+                    </div>
+                    <div class="col-md-1">
+                        <h:link class="btn btn-primary" outcome="/index" value="#{bundle.ListPaisIndexLink}"/>
+                    </div>
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>

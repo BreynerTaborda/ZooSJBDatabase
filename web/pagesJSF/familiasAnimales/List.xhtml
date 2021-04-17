@@ -19,7 +19,9 @@
                     <h:outputText value="#{familiasAnimalesController.pagination.pageFirstItem + 1}..#{familiasAnimalesController.pagination.pageLastItem + 1}/#{familiasAnimalesController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{familiasAnimalesController.previous}" value="#{bundle.Previous} #{familiasAnimalesController.pagination.pageSize}" rendered="#{familiasAnimalesController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{familiasAnimalesController.next}" value="#{bundle.Next} #{familiasAnimalesController.pagination.pageSize}" rendered="#{familiasAnimalesController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{familiasAnimalesController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:dataTable value="#{familiasAnimalesController.items}" var="item" border="0" cellpadding="2"
+                        cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" 
+                        rules="all" class="table">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListFamiliasAnimalesTitle_idFamilias}"/>
@@ -36,19 +38,23 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{familiasAnimalesController.prepareView}" value="#{bundle.ListFamiliasAnimalesViewLink}"/>
+                            <h:commandLink class="btn btn-primary" action="#{familiasAnimalesController.prepareView}" value="#{bundle.ListFamiliasAnimalesViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{familiasAnimalesController.prepareEdit}" value="#{bundle.ListFamiliasAnimalesEditLink}"/>
+                            <h:commandLink class="btn btn-primary" action="#{familiasAnimalesController.prepareEdit}" value="#{bundle.ListFamiliasAnimalesEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{familiasAnimalesController.destroy}" value="#{bundle.ListFamiliasAnimalesDestroyLink}"/>
+                            <h:commandLink class="btn btn-primary" action="#{familiasAnimalesController.destroy}" value="#{bundle.ListFamiliasAnimalesDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink class="btn btn-primary" action="#{familiasAnimalesController.prepareCreate}" value="#{bundle.ListFamiliasAnimalesCreateLink}"/>
-                <br />
-                <br />
-                <h:link class="btn btn-primary" outcome="/index" value="#{bundle.ListFamiliasAnimalesIndexLink}"/>
+                <div class="row">
+                    <div class="col-md3 text-center">
+                        <h:commandLink class="btn btn-primary" action="#{familiasAnimalesController.prepareCreate}" value="#{bundle.ListFamiliasAnimalesCreateLink}"/>
+                    </div>
+                    <div class="col-md1">
+                        <h:link class="btn btn-primary" outcome="/index" value="#{bundle.ListFamiliasAnimalesIndexLink}"/>
+                    </div>
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>

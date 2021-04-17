@@ -19,7 +19,9 @@
                     <h:outputText value="#{zoologicosController.pagination.pageFirstItem + 1}..#{zoologicosController.pagination.pageLastItem + 1}/#{zoologicosController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{zoologicosController.previous}" value="#{bundle.Previous} #{zoologicosController.pagination.pageSize}" rendered="#{zoologicosController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{zoologicosController.next}" value="#{bundle.Next} #{zoologicosController.pagination.pageSize}" rendered="#{zoologicosController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{zoologicosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:dataTable value="#{zoologicosController.items}" var="item" border="0" 
+                        cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" 
+                        rules="all" class="table">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListZoologicosTitle_idZoo}"/>
@@ -54,19 +56,23 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{zoologicosController.prepareView}" value="#{bundle.ListZoologicosViewLink}"/>
+                            <h:commandLink class="btn btn-primary" action="#{zoologicosController.prepareView}" value="#{bundle.ListZoologicosViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{zoologicosController.prepareEdit}" value="#{bundle.ListZoologicosEditLink}"/>
+                            <h:commandLink class="btn btn-primary" action="#{zoologicosController.prepareEdit}" value="#{bundle.ListZoologicosEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{zoologicosController.destroy}" value="#{bundle.ListZoologicosDestroyLink}"/>
+                            <h:commandLink class="btn btn-primary" action="#{zoologicosController.destroy}" value="#{bundle.ListZoologicosDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink class="btn btn-primary" action="#{zoologicosController.prepareCreate}" value="#{bundle.ListZoologicosCreateLink}"/>
-                <br />
-                <br />
-                <h:link class="btn btn-primary" outcome="/index" value="#{bundle.ListZoologicosIndexLink}"/>
+                <div class="row">
+                    <div class="col-md3 text-center">
+                        <h:commandLink class="btn btn-primary" action="#{zoologicosController.prepareCreate}" value="#{bundle.ListZoologicosCreateLink}"/>
+                    </div>
+                    <div class="col-md1">
+                        <h:link class="btn btn-primary" outcome="/index" value="#{bundle.ListZoologicosIndexLink}"/>
+                    </div>
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>
